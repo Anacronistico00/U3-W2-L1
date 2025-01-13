@@ -2,25 +2,26 @@ import { Component } from 'react';
 import { Card, ListGroup } from 'react-bootstrap';
 
 class SingleBook extends Component {
-  state = {
-    selected: false,
-  };
+  // state = {
+  //   selected: false,
+  // };
 
-  handleClick = () => {
-    this.setState({
-      selected: !this.state.selected,
-    });
-  };
+  // handleClick = () => {
+  //   this.setState({
+  //     selected: !this.state.selected,
+  //   });
+  // };
   render() {
     return (
       <Card
         style={{
           width: '16rem',
           margin: '7px',
-          border: this.state.selected ? '1px solid red' : 'none',
+          border:
+            this.props.asin === this.props.book.asin ? '1px solid red' : 'none',
         }}
         onClick={() => {
-          this.handleClick();
+          // this.handleClick();
           this.props.handleBookSelect(this.props.book.asin);
         }}
       >

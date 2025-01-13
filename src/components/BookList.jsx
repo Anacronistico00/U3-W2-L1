@@ -17,7 +17,7 @@ class BookList extends Component {
 
   handleBookSelect = (asin) => {
     this.setState({
-      selectedBook: asin,
+      selectedBook: asin === this.state.selectedBook ? null : asin,
     });
   };
 
@@ -49,6 +49,7 @@ class BookList extends Component {
                     key={i}
                     book={book}
                     handleBookSelect={this.handleBookSelect}
+                    asin={this.state.selectedBook}
                   />
                 ))}
               </div>

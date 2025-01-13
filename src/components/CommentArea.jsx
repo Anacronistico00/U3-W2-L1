@@ -50,7 +50,7 @@ class CommentArea extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.asin !== this.props.asin) {
+    if (prevProps.asin !== this.props.asin && this.props.asin !== null) {
       this.getComments();
     }
   }
