@@ -1,6 +1,5 @@
 import { Component } from 'react';
 import { Card, ListGroup } from 'react-bootstrap';
-import CommentArea from './CommentArea';
 
 class SingleBook extends Component {
   state = {
@@ -20,13 +19,16 @@ class SingleBook extends Component {
           margin: '7px',
           border: this.state.selected ? '1px solid red' : 'none',
         }}
+        onClick={() => {
+          this.handleClick();
+          this.props.handleBookSelect(this.props.book.asin);
+        }}
       >
         <Card.Img
           variant='top'
           style={{ height: '400px' }}
           src={this.props.book.img}
           alt={this.props.book.title}
-          onClick={this.handleClick}
         />
         <Card.Body className='d-flex flex-column justify-content-between'>
           <Card.Title className='fw-bold'>{this.props.book.title}</Card.Title>
@@ -37,14 +39,6 @@ class SingleBook extends Component {
             </ListGroup.Item>
             <ListGroup.Item className='fs-6'>
               ASIN: {this.props.book.asin}
-            </ListGroup.Item>
-            <ListGroup.Item>
-              {this.state.selected && (
-                <CommentArea
-                  display={this.state.selected}
-                  asin={this.props.book.asin}
-                />
-              )}
             </ListGroup.Item>
           </ListGroup>
         </Card.Body>

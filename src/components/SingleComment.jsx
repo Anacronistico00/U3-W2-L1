@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Alert, Button, Modal } from 'react-bootstrap';
+import { Alert, Button, Container, Modal } from 'react-bootstrap';
 
 const token =
   'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NzYwMGRkNTBlYTI4NjAwMTUyOGI5NTgiLCJpYXQiOjE3MzY2NzcyMjksImV4cCI6MTczNzg4NjgyOX0.zLzKm3iXeO3hZs1lPOOWUq6Ap9M1YDAS06cSDSgRtm8';
@@ -49,7 +49,7 @@ class SingleComment extends Component {
 
   render() {
     return (
-      <>
+      <Container fluid className='d-flex justify-content-between mb-3'>
         <p>{this.props.comment}</p>
         {this.state.isError && (
           <div className='text-center'>
@@ -86,7 +86,7 @@ class SingleComment extends Component {
             <path d='M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4zM2.5 3h11V2h-11z' />
           </svg>
         </Button>
-      </>
+      </Container>
     );
   }
 }
